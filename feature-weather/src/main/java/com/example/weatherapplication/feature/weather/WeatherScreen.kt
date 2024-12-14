@@ -5,16 +5,20 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
-import androidx.compose.material3.*
+
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.weatherapplication.core.model.WeatherResponse
 
 @Composable
-fun WeatherScreen(viewModel: WeatherViewModel) {
+fun WeatherScreen(viewModel: WeatherViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsState()
 
     Scaffold(
@@ -49,11 +53,16 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
 @Composable
 fun WeatherDisplay(weather: WeatherResponse) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = "City: ${weather.city}", style = MaterialTheme.typography.titleLarge)
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(text = "Temperature: ${weather.temperature}°C", style = MaterialTheme.typography.bodyLarge)
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(text = "Description: ${weather.description}", style = MaterialTheme.typography.bodyLarge)
+        Text(text = "City: ${weather.city}", style = TextStyle(
+            fontSize = 18.sp,  // Customize font size
+            fontWeight = FontWeight.Bold,  // Customize font weight
+            color = Color.Black,  // Customize text color
+            lineHeight = 24.sp  // Customize line height
+        )  )
+//        Spacer(modifier = Modifier.height(8.dp))
+//        Text(text = "Temperature: ${weather.temperature}°C", style = MaterialTheme.typography.bodyLarge)
+//        Spacer(modifier = Modifier.height(8.dp))
+//        Text(text = "Description: ${weather.description}", style = MaterialTheme.typography.bodyLarge)
     }
 }
 

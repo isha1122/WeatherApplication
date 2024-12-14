@@ -1,15 +1,16 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.kapt'
 }
 
 android {
     namespace 'com.example.weatherapplication.feature.search'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 26
-        targetSdk 33
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -32,10 +33,25 @@ android {
 
 dependencies {
 
+
+    // Core libraries
     implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+   // implementation 'com.google.android.material:material:1.9.0' // Compatible version for API 33
+
+    // Hilt dependencies
+    implementation 'com.google.dagger:hilt-android:2.44' // Compatible Hilt version for API 33
+    kapt 'com.google.dagger:hilt-android-compiler:2.44'
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
+
+    // Jetpack Compose
+    implementation "androidx.compose.ui:ui:1.4.3" // Compose version compatible with API 33
+   // implementation "androidx.compose.material3:material3:1.0.1" // Material3 compatible with API 33
+    implementation "androidx.compose.material:material:1.4.3" // Material2 compatible with API 33
+    implementation "androidx.compose.runtime:runtime:1.4.3"
+
+    // Testing
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }

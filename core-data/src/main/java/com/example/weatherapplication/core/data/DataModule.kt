@@ -18,7 +18,7 @@ object DataModule {
     @Singleton
     fun provideWeatherApi(): WeatherApi {
         return Retrofit.Builder()
-            .baseUrl("BASE_URL")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(WeatherApi::class.java)
@@ -29,4 +29,6 @@ object DataModule {
     fun provideWeatherRepository(api: WeatherApi): WeatherRepository {
         return WeatherRepositoryImpl(api)
     }
+   const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
+
 }
