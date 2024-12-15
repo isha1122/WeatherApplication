@@ -9,6 +9,9 @@ class WeatherRepositoryImpl @Inject constructor(
     private val api: WeatherApi
 ) : WeatherRepository {
     override suspend fun fetchWeather(city: String): WeatherResponse {
-        return api.getWeather(city, "API_KEY")
+        println("Calling API for city: $city")
+        return api.getWeather("71200ead43c5979546e49e266b5eb2d2", city).also {
+            println("API Response: $it")
+        }
     }
 }

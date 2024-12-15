@@ -23,8 +23,10 @@ class WeatherViewModel @Inject constructor(
             try {
                 val weather = getWeatherUseCase(city)
                 _state.value = WeatherState.Success(weather)
+                println("Weather fetched: $weather")
             } catch (e: Exception) {
                 _state.value = WeatherState.Error(e.message ?: "Error fetching weather")
+                println("Error fetching weather: ${e.message}")
             }
         }
     }
