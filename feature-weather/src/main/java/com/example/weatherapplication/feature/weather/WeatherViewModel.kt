@@ -11,11 +11,11 @@ import javax.inject.Inject
 
 // Presentation Layer: ViewModel
 @HiltViewModel
-class WeatherViewModel @Inject constructor(
+open class WeatherViewModel @Inject constructor(
     private val getWeatherUseCase: GetWeatherUseCase
 ) : ViewModel() {
     private val _state = MutableStateFlow<WeatherState>(WeatherState.Idle)
-    val state: StateFlow<WeatherState> = _state
+    open val state: StateFlow<WeatherState> = _state
 
     fun fetchWeather(city: String) {
         viewModelScope.launch {

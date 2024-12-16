@@ -68,22 +68,73 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
 
     // Testing Dependencies
+//    testImplementation("junit:junit:4.13.2")
+//    testImplementation("androidx.arch.core:core-testing:2.1.0")
+//    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+//    testImplementation("org.mockito:mockito-core:5.6.0")
+//    testImplementation("org.mockito.kotlin:mockito-kotlin:5.0.0")
+//    testImplementation("app.cash.turbine:turbine:1.0.0")
+
+    // Testing Dependencies
+//    testImplementation("junit:junit:4.13.2")
+//    testImplementation("androidx.arch.core:core-testing:2.1.0")
+//    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+//    testImplementation("org.mockito:mockito-core:5.6.0")
+//    testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0") // Use 4.1.0 for mockito-kotlin
+//    testImplementation("app.cash.turbine:turbine:1.0.0")
+//    // Testing Dependencies
+//    testImplementation("junit:junit:4.13.2")
+//    testImplementation("androidx.arch.core:core-testing:2.1.0")
+//    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+//    testImplementation("org.mockito:mockito-core:5.6.0")
+//    testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")  // Compatible version for `whenever`
+//    testImplementation("app.cash.turbine:turbine:1.0.0")
+//
+//    // Android Testing
+//    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+//    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+//    androidTestImplementation "org.mockito:mockito-android:5.6.0"
+//    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito-inline:2.28.1"
+    // Android Testing
+  //  androidTestImplementation("androidx.test.ext:junit:1.1.5")
+ //   androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+ //   androidTestImplementation "org.mockito:mockito-android:5.6.0"
+ //   androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito-inline:2.28.1"
+//    androidTestImplementation "org.mockito.kotlin:mockito-kotlin:5.0.0"
+
+    androidTestImplementation "androidx.hilt:hilt-navigation-compose:1.0.0"  // Hilt Navigation Compose
+    androidTestImplementation "com.google.dagger:hilt-android-testing:2.44"  // Hilt Android Test
+
+//    // Android Testing
+//    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+//    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+//    androidTestImplementation "org.mockito:mockito-android:5.6.0"
+//    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito-inline:2.28.1"
+    // Compose Testing
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
+
+    debugImplementation("androidx.compose.ui:ui-tooling:$compose_version")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
+    // Mocking Framework (Mockito)
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.1.0"
+// Testing Dependencies
     testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.arch.core:core-testing:2.1.0")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
-    testImplementation("org.mockito:mockito-core:5.6.0")
-    testImplementation("org.mockito.kotlin:mockito-kotlin:5.0.0")
+  //  testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+  //  testImplementation("org.mockito:mockito-core:3.12.4") // Using compatible version for Mockito Core
+   // testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0") // Compatible Mockito Kotlin version
     testImplementation("app.cash.turbine:turbine:1.0.0")
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.1.0"
+    testImplementation("org.mockito:mockito-core:4.11.0") // Or latest stable version.
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
 
     // Android Testing
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+   // androidTestImplementation "org.mockito:mockito-android:3.12.4"
+    androidTestImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0") // Stable and compatible version
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito-inline:2.28.1"
 
-    // Compose Testing
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.6.0")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.6.0")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.6.0")
+    androidTestImplementation("androidx.test:runner:1.5.2")
 
-    // Mocking Framework (Mockito)
-    testImplementation "org.mockito.kotlin:mockito-kotlin:4.1.0"
 }
