@@ -1,40 +1,45 @@
 package com.example.weatherapplication.feature.search
 
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.activity.ComponentActivity
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
 import androidx.navigation.NavController
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import io.mockk.mockk
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.kotlin.mock
+import org.junit.runner.RunWith
 import org.mockito.kotlin.verify
 
+@RunWith(AndroidJUnit4::class)
 class SearchScreenTest {
 
     @get:Rule
-    val composeTestRule = createComposeRule()
+    val composeTestRule = createAndroidComposeRule<ComponentActivity>()
 
     @Test
-    fun testSearchScreenButtonClick() {
-        // Mock the NavController
-        val navController = mock<NavController>()
+    fun searchScreen_enterCityAndNavigate() {
+        // Create a mocked NavController
+        val mockNavController = mockk<NavController>(relaxed = true)
 
-        // Set the composable content
         composeTestRule.setContent {
-            // Wrap SearchScreen inside a composable block
-            SearchScreen(navController = navController)
+            SearchScreen(navController = mockNavController)
         }
 
-        // Find the TextField and Button in the composable
-        val textField = composeTestRule.onNodeWithText("Enter City")
-        val button = composeTestRule.onNodeWithText("Get Weather")
+        // Find the text field and input city name
+        val cityName = "Paris"
+        composeTestRule
+            .onNodeWithText("Enter City")
+            .performTextInput(cityName)
 
-        // Perform some actions
-        textField.performTextInput("New York")
-        button.performClick()
+        // Find and click the "Get Weather" button
+        composeTestRule
+            .onNodeWithText("Get Weather")
+            .performClick()
 
-        // Verify if navController's navigate method was called with the correct argument
-        verify(navController).navigate("weather/New York")
+        // Verify navigation is triggered with the correct argument
+        verify { mockNavController.navigate("weather/$cityName") }
     }
 }

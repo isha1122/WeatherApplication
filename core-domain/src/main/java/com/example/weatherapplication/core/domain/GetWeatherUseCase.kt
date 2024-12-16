@@ -9,7 +9,7 @@ open class GetWeatherUseCase @Inject constructor(
     init {
         println("Repository is null: ${repository == null}")
     }
-    suspend operator fun invoke(city: String): WeatherResponse {
+    open suspend operator fun invoke(city: String): WeatherResponse {
         return repository.fetchWeather(city)
     }
 }
