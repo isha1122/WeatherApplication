@@ -11,7 +11,7 @@ import io.mockk.mockk
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.kotlin.verify
+import io.mockk.verify  // Use verify from Mockk
 
 @RunWith(AndroidJUnit4::class)
 class SearchScreenTest {
